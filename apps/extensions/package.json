@@ -1,5 +1,5 @@
 {
-  "name": "@qurious/extension",
+  "name": "@qurious/extensionvv",
   "displayName": "qurious",
   "description": "",
   "version": "0.0.1",
@@ -12,7 +12,7 @@
   "activationEvents": [
     "onView:sidebar"
   ],
-  "main": "./dist/extension.js",
+  "main": "./out/extension.js",
   "contributes": {
     "viewsContainers": {
       "activitybar": [
