@@ -20,7 +20,7 @@ const SESSIONS_SECRET_KEY = `${AUTH_TYPE}.sessions`;
 const REDIRECT_URI =
   'https://api.respal.me/oauth/web-dev/login/google&response_type=code&scope=https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile';
 
-export class Auth0AuthenticationProvider
+export class AuthProvider
   implements AuthenticationProvider, Disposable
 {
   private _sessionChangeEmitter =

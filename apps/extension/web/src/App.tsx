@@ -1,12 +1,27 @@
-interface vscode {
-  postMessage(message: any): void;
-}
-// declare function acquireVsCodeApi(): vscode;
-declare const vscode: vscode;
+import { useLayoutEffect } from 'react';
 
 function App() {
-  // @ts-ignore
   const vscode = acquireVsCodeApi();
+
+  useLayoutEffect(() => {
+    const handleMessages = (event: MessageEvent) => {
+      const message = event.data; // The JSON data our extension sent
+
+      switch (message.type) {
+        case 'TOKEN':
+          console.log('HELLO GOOD', message.value);
+          break;
+        default:
+      }
+    };
+
+    window.addEventListener('message', handleMessages);
+
+    return () => {
+      window.removeEventListener('message', handleMessages);
+    };
+  }, []);
+
   return (
     <div className="bg-red-500 w-full h-full">
       <h1>My App</h1>
